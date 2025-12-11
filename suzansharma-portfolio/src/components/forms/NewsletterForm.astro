@@ -1,0 +1,36 @@
+---
+---
+
+<form id="newsletter-form" class="space-y-4">
+  <div class="flex flex-col sm:flex-row gap-2">
+    <input
+      type="email"
+      placeholder="Enter your email..."
+      required
+      class="flex-1 px-4 py-3 bg-gray-900/50 border border-gray-700 rounded-lg focus:outline-none focus:border-cyan-400 transition"
+    />
+    <button type="submit" class="neon-button">Subscribe</button>
+  </div>
+  <p class="text-xs text-gray-500">
+    ✅ No spam.  Unsubscribe anytime.  Tourism growth tips delivered weekly.
+  </p>
+</form>
+
+<script>
+  const form = document.getElementById('newsletter-form');
+
+  form?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const email = (form.querySelector('input[type="email"]') as HTMLInputElement).value;
+
+    // Implementation depends on your email service (Mailchimp, ConvertKit, etc)
+    console.log('Newsletter signup:', email);
+
+    // Reset form
+    form.reset();
+
+    // Show confirmation (optional)
+    alert('✅ Thanks for subscribing! Check your email for confirmation.');
+  });
+</script>

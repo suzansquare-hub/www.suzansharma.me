@@ -1,0 +1,33 @@
+/* Neon Effects */
+
+.neon-glow {
+  text-shadow:  
+    0 0 10px #00d9ff,
+    0 0 20px #a855f7,
+    0 0 30px #ec4899,
+    0 0 40px #a855f7;
+  color: #fff;
+}
+
+.neon-button {
+  background: linear-gradient(135deg, #00d9ff, #a855f7);
+  color: #000;
+  box-shadow: 0 0 15px rgba(0, 217, 255, 0.5);
+  transition: all 0.3s ease;
+  padding: 12px 24px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.neon-button:hover {
+  box-shadow: 0 0 25px rgba(0, 217, 255, 0.8);
+  transform: translateY(-2px);
+}
+
+.neon-box {
+  background: rgba(0, 0, 0, 0.5);
+  border: 2px solid #00d9ff;
+  box-shadow: 0 0 10px #00d9ff, inset 0 0 10px rgba(0, 217, 255, 0.1);
+}

@@ -1,0 +1,35 @@
+---
+import Layout from '../../../layouts/BlogLayout.astro';
+import { getAllBlogPosts, getAllCategories } from '../../../lib/blog/getPosts';
+import BlogGrid from '../../../components/blog/BlogGrid.astro';
+
+export async function getStaticPaths() {
+  const categories = getAllCategories();
+  return categories.map(category => ({
+    params: { category },
+  }));
+}
+
+const { category } = Astro.params;
+const allPosts = getAllBlogPosts();
+const categoryPosts = allPosts.filter(post => post.category === category);
+---
+
+<Layout title={`${category} | Blog`}>
+  <section class="py-20">
+    <div class="container mx-auto px-4">
+      <h1 class="text-4xl font-bold mb-4 capitalize neon-glow">
+        {category} Articles
+      </h1>
+      <p class="text-gray-400 mb-12">
+        {categoryPosts.length} articles in this category
+      </p>
+
+      {categoryPosts.length > 0 ?  (
+        <BlogGrid posts={categoryPosts} />
+      ) : (
+        <p class="text-gray-500">No articles found in this category.</p>
+      )}
+    </div>
+  </section>
+</Layout>

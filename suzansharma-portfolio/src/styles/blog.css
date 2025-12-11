@@ -1,0 +1,80 @@
+/* Blog Typography */
+.prose {
+  @apply text-gray-300;
+}
+
+.prose h2 {
+  @apply text-3xl font-bold mt-8 mb-4 text-white;
+  border-bottom: 2px solid rgba(0, 255, 136, 0.2);
+  padding-bottom: 8px;
+}
+
+.prose h3 {
+  @apply text-2xl font-bold mt-6 mb-3 text-cyan-400;
+}
+
+.prose p {
+  @apply mb-4 leading-relaxed;
+}
+
+.prose a {
+  @apply text-cyan-400 hover:text-cyan-300 transition underline;
+}
+
+.prose ul,
+.prose ol {
+  @apply ml-6 mb-4 space-y-2;
+}
+
+.prose li {
+  @apply text-gray-300;
+}
+
+.prose code {
+  @apply bg-gray-900/50 px-2 py-1 rounded text-cyan-300 text-sm;
+}
+
+.prose pre {
+  @apply bg-gray-900/50 p-4 rounded-lg overflow-x-auto mb-4 border border-gray-800;
+}
+
+.prose pre code {
+  @apply bg-transparent px-0 py-0;
+}
+
+.prose blockquote {
+  @apply border-l-4 border-cyan-400 pl-4 py-2 italic text-gray-400;
+}
+
+.prose img {
+  @apply rounded-lg my-8 max-w-full;
+}
+
+.prose table {
+  @apply w-full border-collapse my-6;
+}
+
+.prose table th {
+  @apply bg-gray-900/50 px-4 py-2 text-left font-bold border border-gray-800;
+}
+
+.prose table td {
+  @apply px-4 py-2 border border-gray-800;
+}
+
+/* Line clamp utility */
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp:  2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Blog card animations */
+.blog-card {
+  @apply transition-all duration-300;
+}
+
+.blog-card:hover {
+  @apply transform -translate-y-1 shadow-lg;
+}

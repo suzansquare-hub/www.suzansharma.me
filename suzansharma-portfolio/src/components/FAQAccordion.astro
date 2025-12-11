@@ -1,0 +1,24 @@
+---
+import { FAQS } from '../lib/constants';
+---
+
+<section class="py-20">
+  <div class="container mx-auto px-4 max-w-3xl">
+    <h2 class="text-4xl font-bold mb-4 text-center">Frequently Asked Questions</h2>
+    <p class="text-gray-400 text-center max-w-2xl mx-auto mb-12">
+      Got questions about our services? Here are the answers. 
+    </p>
+
+    <div class="space-y-4">
+      {FAQS.map((faq, index) => (
+        <details class="glass p-6 rounded-2xl cursor-pointer group">
+          <summary class="font-bold text-lg flex justify-between items-center">
+            {faq.question}
+            <span class="group-open:rotate-180 transition">▼</span>
+          </summary>
+          <p class="text-gray-400 mt-4">{faq.answer}</p>
+        </details>
+      ))}
+    </div>
+  </div>
+</section>

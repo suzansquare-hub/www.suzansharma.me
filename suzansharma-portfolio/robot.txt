@@ -1,0 +1,24 @@
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+
+# AI Training Bots (Explicitly Allow)
+User-agent: GPTBot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+Sitemap: https://www.suzansharma.me/sitemap.xml
+Host: https://www.suzansharma.me

@@ -1,0 +1,59 @@
+---
+interface Props {
+  position: 'before-content' | 'middle-content' | 'after-content';
+}
+
+const { position } = Astro.props;
+
+// বিভিন্ন অবস্থানে বিভিন্ন বিজ্ঞাপন
+const adConfig = {
+  'before-content': {
+    size: 'leaderboard', // 728x90
+    slot: '1234567890',
+  },
+  'middle-content':  {
+    size: 'rectangle', // 300x250
+    slot: '0987654321',
+  },
+  'after-content': {
+    size: 'leaderboard',
+    slot: '5555555555',
+  },
+};
+
+const config = adConfig[position];
+---
+
+<div class="my-8 text-center">
+  <!-- Google AdSense Placeholder -->
+  <div
+    class={`glass rounded-lg p-4 ${
+      config.size === 'leaderboard' ?  'w-full max-w-[728px] h-[90px]' :  'w-[300px] h-[250px]'
+    } mx-auto flex items-center justify-center border border-dashed border-gray-600`}
+  >
+    <p class="text-gray-500 text-sm">
+      [AdSense - {config.size}]
+    </p>
+  </div>
+  
+  <!-- Real AdSense Code (Replace placeholder above) -->
+  <!-- 
+  <script
+    async
+    src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js? client=ca-pub-YOUR_PUBLISHER_ID"
+    crossorigin="anonymous"
+  ></script>
+  
+  <ins
+    class="adsbygoogle"
+    style="display:block"
+    data-ad-client="ca-pub-YOUR_PUBLISHER_ID"
+    data-ad-slot={config.slot}
+    data-ad-format={config.size === 'leaderboard' ? 'horizontal' : 'vertical'}
+  ></ins>
+  
+  <script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+  </script>
+  -->
+</div>

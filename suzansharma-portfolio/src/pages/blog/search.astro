@@ -1,0 +1,52 @@
+---
+import Layout from '../../layouts/BlogLayout.astro';
+import { getAllBlogPosts, searchPosts } from '../../lib/blog/getPosts';
+import BlogGrid from '../../components/blog/BlogGrid.astro';
+
+// Client-side search handler
+---
+
+<Layout title="Search | Blog">
+  <section class="py-20">
+    <div class="container mx-auto px-4">
+      <h1 class="text-4xl font-bold mb-8 neon-glow">Search Blog Posts</h1>
+
+      <form id="search-form" class="mb-12">
+        <input
+          id="search-input"
+          type="text"
+          placeholder="Search blog posts..."
+          class="w-full px-6 py-4 bg-gray-900/50 border border-gray-700 rounded-lg focus:outline-none focus: border-cyan-400 transition"
+        />
+      </form>
+
+      <div id="search-results">
+        <!-- Results will appear here -->
+      </div>
+    </div>
+  </section>
+
+  <script>
+    const searchInput = document.getElementById('search-input');
+    const searchResults = document.getElementById('search-results');
+    const allPosts = {/* fetched from lib */};
+
+    searchInput?.addEventListener('input', (e) => {
+      const query = (e.target as HTMLInputElement).value;
+      if (query.length < 2) {
+        searchResults! .innerHTML = '';
+        return;
+      }
+
+      // Search implementation
+      const results = allPosts.filter((post:  any) =>
+        post.title.toLowerCase().includes(query.toLowerCase()) ||
+        post.description.toLowerCase().includes(query.toLowerCase())
+      );
+
+      searchResults!.innerHTML = results.length > 0
+        ? `<p class="text-gray-400">${results.length} results found</p>`
+        : '<p class="text-gray-500">No results found</p>';
+    });
+  </script>
+</Layout>

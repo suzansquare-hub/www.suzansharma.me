@@ -1,0 +1,29 @@
+---
+import { SERVICES } from '../lib/constants';
+import Card from './ui/Card.astro';
+---
+
+<section class="py-20">
+  <div class="container mx-auto px-4">
+    <h2 class="text-4xl font-bold mb-4 text-center">Core Tourism Growth Systems</h2>
+    <p class="text-gray-400 text-center max-w-2xl mx-auto mb-16">
+      9 integrated systems designed for hotels, resorts, cruise lines, and tourism brands
+    </p>
+
+    <div class="grid md: grid-cols-3 gap-8">
+      {SERVICES.map((service) => (
+        <Card>
+          <div class="text-4xl mb-4">{service.icon}</div>
+          <h3 class="text-xl font-bold mb-2">{service.title}</h3>
+          <p class="text-gray-400 text-sm">{service.description}</p>
+        </Card>
+      ))}
+    </div>
+
+    <div class="text-center mt-16">
+      <a href="/services" class="neon-button">
+        View All Services
+      </a>
+    </div>
+  </div>
+</section>

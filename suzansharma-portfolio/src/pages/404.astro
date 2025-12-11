@@ -1,0 +1,159 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="404 - Page Not Found | Suzan Sharma">
+  <section class="min-h-screen flex items-center justify-center py-20 relative overflow-hidden">
+    <!-- Background Elements -->
+    <div class="absolute -top-40 -right-40 w-80 h-80 bg-purple-600/20 rounded-full blur-3xl animate-pulse"></div>
+    <div class="absolute -bottom-40 -left-40 w-80 h-80 bg-cyan-600/20 rounded-full blur-3xl animate-pulse"></div>
+    
+    <!-- Grid Background -->
+    <div class="cyber-grid absolute inset-0 opacity-20"></div>
+
+    <div class="relative z-10 container mx-auto px-4 text-center">
+      <!-- 404 Animation -->
+      <div class="mb-8">
+        <div class="text-9xl md:text-[150px] font-bold neon-glow animate-bounce" style="animation-duration: 2s;">
+          404
+        </div>
+      </div>
+
+      <!-- Main Message -->
+      <h1 class="text-4xl md:text-5xl font-bold mb-6 text-white">
+        Oops! Page Not Found
+      </h1>
+
+      <!-- Subtitle with Style -->
+      <div class="glass p-8 rounded-2xl mb-8 max-w-2xl mx-auto backdrop-blur-xl border border-white/10">
+        <p class="text-lg text-gray-300 mb-4">
+          এই পেজটি আর নেই বা ভুল URL দিয়েছেন। 
+        </p>
+        <p class="text-gray-400">
+          আমার tourism growth systems explore করতে নিচের লিঙ্কগুলো ব্যবহার করুন।
+        </p>
+      </div>
+
+      <!-- Interactive Message -->
+      <div class="space-y-6 mb-12">
+        <div class="glass p-6 rounded-xl border-l-4 border-cyan-400">
+          <p class="text-sm text-gray-300">
+            💡 <span class="font-semibold">ভালো খবর: </span> আমার ব্লগে রয়েছে ১০০+ tourism growth আর্টিকেল যা আপনাকে সাহায্য করতে পারে।
+          </p>
+        </div>
+
+        <div class="glass p-6 rounded-xl border-l-4 border-purple-400">
+          <p class="text-sm text-gray-300">
+            🚀 <span class="font-semibold">কি খুঁজছেন? </span> Hotel booking, SEO, GEO, AI automation - সব কিছু আমার services-এ আছে।
+          </p>
+        </div>
+      </div>
+
+      <!-- CTA Buttons -->
+      <div class="flex flex-col sm:flex-row gap-4 justify-center mb-12">
+        <a 
+          href="/" 
+          class="neon-button"
+        >
+          ← হোমপেজে ফিরুন
+        </a>
+        
+        <a 
+          href="/blog" 
+          class="px-8 py-4 border-2 border-cyan-400 rounded-lg hover:bg-cyan-400/10 transition font-semibold"
+        >
+          📰 ব্লগ দেখুন
+        </a>
+
+        <a 
+          href="/services" 
+          class="px-8 py-4 border-2 border-purple-400 rounded-lg hover:bg-purple-400/10 transition font-semibold"
+        >
+          💼 আমার সেবা
+        </a>
+      </div>
+
+      <!-- Quick Links -->
+      <div class="glass p-8 rounded-2xl max-w-2xl mx-auto">
+        <h3 class="font-bold mb-4 text-cyan-400">জনপ্রিয় পেজসমূহ: </h3>
+        <div class="grid md:grid-cols-2 gap-4">
+          <a href="/about" class="p-4 bg-gray-900/50 rounded-lg hover:border-cyan-400 border border-gray-700 transition hover:bg-cyan-400/5">
+            <p class="font-semibold mb-1">👤 আমার সম্পর্কে</p>
+            <p class="text-xs text-gray-400">MBA + AI Growth Specialist</p>
+          </a>
+
+          <a href="/portfolio" class="p-4 bg-gray-900/50 rounded-lg hover:border-cyan-400 border border-gray-700 transition hover:bg-cyan-400/5">
+            <p class="font-semibold mb-1">🎯 কেস স্টাডি</p>
+            <p class="text-xs text-gray-400">Real tourism brands, real results</p>
+          </a>
+
+          <a href="/contact" class="p-4 bg-gray-900/50 rounded-lg hover:border-cyan-400 border border-gray-700 transition hover:bg-cyan-400/5">
+            <p class="font-semibold mb-1">📧 যোগাযোগ করুন</p>
+            <p class="text-xs text-gray-400">Free consultation + audit</p>
+          </a>
+
+          <a href="/tools" class="p-4 bg-gray-900/50 rounded-lg hover:border-cyan-400 border border-gray-700 transition hover:bg-cyan-400/5">
+            <p class="font-semibold mb-1">🤖 AI Tools</p>
+            <p class="text-xs text-gray-400">Automation stack for tourism</p>
+          </a>
+        </div>
+      </div>
+
+      <!-- WhatsApp CTA -->
+      <div class="mt-12">
+        <p class="text-gray-400 mb-4">এখনও সাহায্য প্রয়োজন?</p>
+        <a 
+          href="https://wa.me/8801770482255? text=Hi%20Suzan,%20I%20was%20looking%20for%20a%20page%20but%20got%20404. %20Can%20you%20help?"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-block px-8 py-4 bg-green-500 hover:bg-green-600 text-white font-bold rounded-lg transition"
+        >
+          💬 WhatsApp-এ মেসেজ করুন
+        </a>
+      </div>
+
+      <!-- Footer Message -->
+      <p class="text-gray-500 text-sm mt-8">
+        Error Code: <span class="text-cyan-400 font-mono">404 Not Found</span>
+      </p>
+    </div>
+  </section>
+
+  <!-- Floating Animation -->
+  <style>
+    @keyframes float-slow {
+      0%, 100% {
+        transform: translateY(0px) rotate(0deg);
+      }
+      50% {
+        transform: translateY(-30px) rotate(5deg);
+      }
+    }
+
+    . animate-float-slow {
+      animation: float-slow 8s ease-in-out infinite;
+    }
+
+    /* 404 Text Glow Effect */
+    @keyframes text-glow {
+      0%, 100% {
+        text-shadow: 
+          0 0 10px #00d9ff,
+          0 0 20px #a855f7,
+          0 0 30px #ec4899,
+          0 0 40px #a855f7;
+      }
+      50% {
+        text-shadow: 
+          0 0 20px #00d9ff,
+          0 0 30px #a855f7,
+          0 0 40px #ec4899,
+          0 0 50px #a855f7;
+      }
+    }
+
+    . neon-glow {
+      animation: text-glow 2s ease-in-out infinite;
+    }
+  </style>
+</Layout>

@@ -1,0 +1,85 @@
+---
+import Layout from '../../layouts/BlogLayout.astro';
+import { getAllBlogPosts, getAllCategories } from '../../lib/blog/getPosts';
+import BlogGrid from '../../components/blog/BlogGrid.astro';
+import BlogCard from '../../components/blog/BlogCard.astro';
+
+const allPosts = getAllBlogPosts();
+const categories = getAllCategories();
+const featuredPosts = allPosts.slice(0, 3);
+const recentPosts = allPosts;
+---
+
+<Layout title="Blog | Suzan Sharma">
+  <!-- Hero Section -->
+  <section class="py-20 text-center">
+    <div class="container mx-auto px-4">
+      <h1 class="text-4xl md:text-5xl font-bold mb-4 neon-glow">
+        Tourism Growth Blog
+      </h1>
+      <p class="text-gray-400 max-w-2xl mx-auto">
+        AI-Powered strategies, SEO tactics, and tourism growth insights from industry experts. 
+      </p>
+    </div>
+  </section>
+
+  <!-- Category Filter -->
+  <section class="py-8 border-b border-white/10">
+    <div class="container mx-auto px-4">
+      <div class="flex gap-3 overflow-x-auto pb-4">
+        <a
+          href="/blog"
+          class="px-4 py-2 rounded-full bg-cyan-400/20 border border-cyan-400 whitespace-nowrap hover:bg-cyan-400/30 transition"
+        >
+          All Posts
+        </a>
+        {categories.map(category => (
+          <a
+            href={`/blog/category/${category}`}
+            class="px-4 py-2 rounded-full bg-gray-800/50 border border-gray-700 whitespace-nowrap hover:bg-gray-700 transition capitalize"
+          >
+            {category}
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Posts -->
+  {featuredPosts.length > 0 && (
+    <section class="py-16">
+      <div class="container mx-auto px-4">
+        <h2 class="text-3xl font-bold mb-8">Featured Posts</h2>
+        <div class="grid md:grid-cols-3 gap-6">
+          {featuredPosts.map(post => (
+            <BlogCard post={post} featured={true} />
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <!-- All Posts -->
+  <section class="py-16">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl font-bold mb-8">Latest Articles</h2>
+      <BlogGrid posts={recentPosts} />
+    </div>
+  </section>
+
+  <!-- Newsletter -->
+  <section class="py-20 bg-gradient-to-r from-cyan-900/20 to-purple-900/20">
+    <div class="container mx-auto px-4 max-w-2xl text-center">
+      <h2 class="text-3xl font-bold mb-4">Stay Updated</h2>
+      <p class="text-gray-400 mb-6">Get the latest tourism growth strategies delivered to your inbox.</p>
+      <form class="flex gap-2">
+        <input
+          type="email"
+          placeholder="Your email..."
+          class="flex-1 px-4 py-3 bg-gray-900/50 border border-gray-700 rounded-lg focus:outline-none focus:border-cyan-400"
+        />
+        <button type="submit" class="neon-button">Subscribe</button>
+      </form>
+    </div>
+  </section>
+</Layout>

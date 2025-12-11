@@ -1,0 +1,29 @@
+---
+interface Props {
+  content: string;
+}
+
+const { content } = Astro.props;
+
+// শিরোনাম বের করা
+const headings = content.match(/^### (.+)$/gm) || [];
+const toc = headings.map(heading => ({
+  text: heading.replace('### ', ''),
+  id: heading.replace('### ', '').toLowerCase().replace(/\s+/g, '-'),
+}));
+---
+
+{toc.length > 0 && (
+  <div class="glass p-6 rounded-2xl mb-12">
+    <h3 class="font-bold mb-4">Table of Contents</h3>
+    <ul class="space-y-2">
+      {toc.map((item) => (
+        <li>
+          <a href={`#${item.id}`} class="text-cyan-400 hover:text-cyan-300 transition text-sm">
+            • {item.text}
+          </a>
+        </li>
+      ))}
+    </ul>
+  </div>
+)}

@@ -1,0 +1,59 @@
+---
+interface Props {
+  post: any;
+  featured?: boolean;
+}
+
+const { post, featured = false } = Astro.props;
+---
+
+<a href={`/blog/${post.slug}`} class={`block group ${featured ? 'md:col-span-1' : ''}`}>
+  <div class={`glass rounded-2xl overflow-hidden hover:border-cyan-400 transition ${featured ? 'h-full' : ''}`}>
+    {post.cover && (
+      <img
+        src={post.cover}
+        alt={post.title}
+        class="w-full h-48 object-cover group-hover:scale-105 transition"
+      />
+    )}
+
+    <div class="p-6">
+      <!-- Category Badge -->
+      <div class="flex gap-2 mb-3">
+        <span class="text-xs px-3 py-1 bg-cyan-400/20 text-cyan-300 rounded-full capitalize">
+          {post.category}
+        </span>
+        <span class="text-xs px-3 py-1 bg-gray-800 text-gray-400 rounded-full">
+          {post.readingTime} min read
+        </span>
+      </div>
+
+      <!-- Title -->
+      <h3 class="text-xl font-bold mb-2 group-hover:text-cyan-400 transition">
+        {post.title}
+      </h3>
+
+      <!-- Description -->
+      <p class="text-gray-400 text-sm mb-4 line-clamp-2">
+        {post.description}
+      </p>
+
+      <!-- Meta -->
+      <div class="flex justify-between items-center text-xs text-gray-500">
+        <span>{new Date(post.date).toLocaleDateString()}</span>
+        <span>By {post.author}</span>
+      </div>
+
+      <!-- Tags -->
+      {post.tags.length > 0 && (
+        <div class="flex gap-2 mt-4 flex-wrap">
+          {post.tags.slice(0, 3).map(tag => (
+            <span class="text-xs px-2 py-1 bg-gray-900/50 text-gray-400 rounded">
+              #{tag}
+            </span>
+          ))}
+        </div>
+      )}
+    </div>
+  </div>
+</a>

@@ -1,0 +1,56 @@
+---
+import Card from './ui/Card.astro';
+
+const projects = [
+  {
+    title: 'Hotel Direct Booking Growth System',
+    sector: 'Beach Resort - Maldives',
+    result: 'Reduced OTA dependency, +60% direct bookings',
+    tags: ['SEO', 'Booking Funnel', 'Conversion'],
+  },
+  {
+    title:  'Luxury Cruise Lead Automation',
+    sector: 'Cruise Line - Europe',
+    result: 'Lead capture system, itinerary demand generation',
+    tags: ['AI Chatbot', 'Email Automation', 'CRM'],
+  },
+  {
+    title: 'Destination Authority GEO Engine',
+    sector: 'Tourism Board - Asia',
+    result: 'Organic travel intent traffic, AI search visibility',
+    tags: ['GEO', 'Content Strategy', 'Local SEO'],
+  },
+];
+---
+
+<section class="py-20">
+  <div class="container mx-auto px-4">
+    <h2 class="text-4xl font-bold mb-4 text-center">Featured Case Studies</h2>
+    <p class="text-gray-400 text-center max-w-2xl mx-auto mb-16">
+      Real-world tourism revenue systems with measurable results
+    </p>
+
+    <div class="grid md: grid-cols-3 gap-8 mb-12">
+      {projects.map((project) => (
+        <Card>
+          <h3 class="text-xl font-bold mb-2">{project.title}</h3>
+          <p class="text-sm text-gray-400 mb-4">{project.sector}</p>
+          <p class="text-green-400 font-semibold mb-6">✅ {project.result}</p>
+          <div class="flex flex-wrap gap-2">
+            {project.tags.map((tag) => (
+              <span class="text-xs px-2 py-1 bg-cyan-400/20 text-cyan-300 rounded">
+                {tag}
+              </span>
+            ))}
+          </div>
+        </Card>
+      ))}
+    </div>
+
+    <div class="text-center">
+      <a href="/portfolio" class="neon-button">
+        View All Case Studies
+      </a>
+    </div>
+  </div>
+</section>

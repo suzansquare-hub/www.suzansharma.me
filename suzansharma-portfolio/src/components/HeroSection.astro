@@ -1,0 +1,38 @@
+---
+import { HERO } from '../lib/constants';
+import Button from './Button.astro';
+---
+
+<section class="relative min-h-screen flex items-center justify-center overflow-hidden py-20">
+  <!-- Background Grid -->
+  <div class="cyber-grid absolute inset-0 opacity-20"></div>
+
+  <!-- Animated Blobs -->
+  <div class="absolute -top-40 -right-40 w-80 h-80 bg-purple-600/20 rounded-full blur-3xl animate-pulse"></div>
+  <div class="absolute -bottom-40 -left-40 w-80 h-80 bg-cyan-600/20 rounded-full blur-3xl animate-pulse"></div>
+
+  <div class="relative z-10 container mx-auto px-4 text-center">
+    <h1 class="text-5xl md:text-7xl font-bold mb-6 neon-glow">
+      {HERO.title}
+    </h1>
+
+    <div class="glass p-8 rounded-2xl mb-8 max-w-3xl mx-auto">
+      <p class="text-lg text-gray-200">
+        {HERO.subtitle}
+      </p>
+    </div>
+
+    <p class="text-lg text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-600 mb-12 font-semibold">
+      {HERO.authority}
+    </p>
+
+    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+      <Button variant="neon" size="lg">
+        {HERO.cta1}
+      </Button>
+      <Button variant="secondary" size="lg">
+        {HERO.cta2}
+      </Button>
+    </div>
+  </div>
+</section>
